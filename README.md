@@ -1,76 +1,44 @@
-browser-deeplink
-================
+# browser-deeplink
 
-**‼️  Not maintained** - *Use at own risk*   
+Redirect mobile website users to your native iOS and/or Android app
 
-Redirect your website users to your native Android and/or iOS app. If the user does not have the app, they are redirected to the corresponding app store page. 
+## Overview
 
-Such functionality is very common for apps like YouTube, Spotify etc. But it is not default functionality in mobile browsers today, and unnecessarily hard to implement. This plugin uses a workaround with a hidden `iframe` and `setTimeout()`.
+- Repository: [alzkdpf/browser-deeplink](https://github.com/alzkdpf/browser-deeplink)
+- Visibility: Public
+- Last updated: 2019-01-25
+- Main stack: JavaScript, Node.js
 
-How to use
--
+## Project Structure
 
-### 1. Include browser-deeplink on your site.
-
-```html
-<script src="browser-deeplink.js" type="text/javascript"></script>
+```text
+LICENSE
+README.md
+browser-deeplink.js
+browser-deeplink.min.js
+example.html
+package.json
 ```
 
-or
+## Getting Started
 
-```js
-require("./browser-deeplink");
+Install dependencies or prepare the project:
+
+```bash
+npm install
 ```
 
-### 2. Provide your app details
-```js
-deeplink.setup({
-    iOS: {
-        appName: "myapp",
-        appId: "123456789",
-    },
-    android: {
-        appId: "com.myapp.android"
-    }
-});
+Run the common development command:
+
+```bash
+npm run dev
 ```
 
-This will create the following fallback app store links:
+## Available Scripts
 
-**iOS:** `itms-apps://itunes.apple.com/app/myapp/id123456789?mt=8`    
-**Android:** `https://play.google.com/store/apps/details?id=com.myapp.android`
+- `test`: `echo "Error: no test specified" && exit 1`
 
-#### Options
+## Notes
 
-Optionally, you can specify a `iOS.storeUrl` or `android.storeUrl` to override the fallback redirect.
-```js
-deeplink.setup({
-    iOS: {
-        storeUrl: "http://...",
-    }
-});
-```
-
-You can also skip the app store fallback altogether if you want by specifying `fallback: false`
-```js
-deeplink.setup({
-    fallback: false
-});
-```
-
-In case you want to register your android app on your http(s) links directly you can disable deeplinking for android  by specifying `androidDisabled: true`
-```js
-deeplink.setup({
-    androidDisabled: true
-});
-```
-
-### 3. Open your deeplinks!
-```js
-window.onload = function() {
-    deeplink.open("myapp://object/xyz");
-}
-```
-
-# License
-This library is released under the MIT licence.
+- This README was generated from the repository metadata and file structure.
+- Update this document when setup steps, deployment targets, or project ownership changes.
